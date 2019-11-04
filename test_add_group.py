@@ -29,7 +29,7 @@ class test_add_group(unittest.TestCase):
         wd.find_element(By.NAME, "user").click()
         wd.find_element(By.NAME, "user").send_keys("admin")
         wd.find_element(By.NAME, "pass").send_keys("secret")
-        wd.find_element(By.CSS_SELECTOR, "input:nth-child(7)").click()
+        wd.find_element(By.CSS_SELECTOR, "input[@type='submit']").click()
         # open groups page
         wd.find_element(By.LINK_TEXT, "groups").click()
         # init group creation
