@@ -30,7 +30,7 @@ class GroupHelper:
         wd = self.app.wd
         self.open_groups_page()
         # select first group
-        wd.find_element(By.NAME, "Select ()").click()
+        wd.find_element(By.NAME, "Select[]").click()
         # submit deletion
         wd.find_element(By.NAME, "delete").click()
         self.return_to_groups_page()
