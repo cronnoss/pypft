@@ -2,6 +2,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 
 from fixtura.group import GroupHelper
 from fixtura.session import SessionHelper
+from fixtura.contact import ContactHelper
 
 
 class Application:
@@ -10,6 +11,7 @@ class Application:
         self.wd = WebDriver()
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
+        self.contact = ContactHelper(self)
 
     def is_valid(self):
         try:
