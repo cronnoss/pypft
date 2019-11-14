@@ -22,17 +22,14 @@ class ContactHelper:
             wd = self.app.wd
             self.app.open_home_page()
             self.contact_cache = []
-            for row in wd.find_elements(By.NAME, "entry"):  # $x("//tr[@name='entry']")
-                cells = row.find_elements(By.TAG_NAME, "td")  # $x("//tr[@name='entry']/td")
+            for row in wd.find_elements(By.NAME, "entry"):
+                cells = row.find_elements(By.TAG_NAME, "td")
                 lastname = cells[1].text
                 firstname = cells[2].text
                 id = cells[0].find_element(By.TAG_NAME, "input").get_attribute("value")
-                all_phones = cells[5].text.splitlines()
+                all_phones = cells[5].text
                 self.contact_cache.append(
-                    Contact(firstname=firstname, lastname=lastname, id=id, homephone=all_phones[0],
-                            mobilephone=all_phones[1], workphone=all_phones[2]))
-                # , secondaryphone=all_phones[3] - do not exist in the home page - probably bag in the app php-addressbook v8.2.5
-
+                    Contact(firstname=firstname, lastname=lastname, id=id, all_phones_from_home_page=all_phones))
         return list(self.contact_cache)
 
     def open_contact_to_edit_by_index(self, index):
