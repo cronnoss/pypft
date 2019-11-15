@@ -6,6 +6,7 @@ import json
 import getopt
 import sys
 
+# https://docs.python.org/3.8/library/getopt.html?highlight=getopt#module-getopt
 try:
     opts, args = getopt.getopt(sys.argv[1:], "n:f:", ["number of groups", "file"])
 except getopt.GetoptError as err:
