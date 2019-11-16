@@ -39,6 +39,7 @@ def pytest_addoption(parser):
     parser.addoption("--target", action="store", default="target.json")
 
 
+# https://remusao.github.io/posts/pytest-param.html
 def pytest_generate_tests(metafunc):
     for fixture in metafunc.fixturenames:
         if fixture.startswith("data_"):
